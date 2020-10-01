@@ -1,0 +1,6 @@
+Main Blue: #00aeff;
+Blue Accent (Super Light): #e4f6ff;
+Blue Accent (Light): #8fdbff;
+Blue Accent (Dark): #120095;
+Dark Grey: #5f5f5f;
+Light Grey: #bfbfbf;

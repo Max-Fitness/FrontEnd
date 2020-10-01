@@ -1,0 +1,75 @@
+.hpWrapper{
+    margin: 2% auto;
+    width: 80%;
+}
+
+.hpImg{
+    width: 37%;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 2%;
+}
+
+.hpIntroWrapper{
+    width: 85%;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 1%;
+    border-radius: 20px;
+    border: 4px solid #120095;
+    margin-bottom: 2%;
+}
+
+.hpTextWrapper{
+    width: 87%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hpTextBox{
+    width: 45%;
+    padding: 1%;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    border: 4px solid #120095;
+
+}
+.EmployeesFullWrapper{
+    border-top: 4px solid #120095;
+    text-align: center;
+}
+
+.Employees{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.EmployeeCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 20%;
+    margin: 2%;
+    border: 2px solid #120095;
+    border-radius: 20px;
+    padding: 1% 0 1% 0;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.EmployeeCard h2, .EmployeeCard h3, .EmployeeCard p{
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+
+.EmployeeCard img{
+    width: 50%;
+    background: #12009546;
+    border-radius: 50%;
+    border: 2px solid #120095;
+    margin: 0 auto 5% auto;
+}

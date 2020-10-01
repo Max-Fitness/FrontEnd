@@ -1,0 +1,23 @@
+html{
+    background-image: url("../images/background_stock.jpg");
+    background-attachment: local;
+}
+body{
+    width: 95%;
+    margin: 0 auto 2% auto;
+    border-radius: 20px;
+    border: 4px solid #120095;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+h1, h2, h3, h4, h5, h6, a{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+p, span{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.test{
+    display: flex;
+}
