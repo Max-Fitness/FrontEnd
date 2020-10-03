@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {Link, useLocation} from "react-router-dom";
-import "../../styles/nav.css"
+import "../../styles/navbar.css"
 import bannerLogo from "../../images/bannerLogo.png"
 import ProfileDropdown from "./ProfileDropdown";
 
