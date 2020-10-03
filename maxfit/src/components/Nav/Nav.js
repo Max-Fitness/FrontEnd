@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import {Link} from "react-router-dom";
-import "../../styles/Nav.css"
+import {Link, useLocation} from "react-router-dom";
+import "../../styles/nav.css"
 import bannerLogo from "../../images/bannerLogo.png"
 import ProfileDropdown from "./ProfileDropdown";
 
@@ -9,6 +9,8 @@ const Nav = () =>{
     const [pricingOn, setPricingOn] = useState(false);
     const [groupsOn, setGroupsOn] = useState(false);
     const [contactOn, setContactOn] = useState(false);
+    const loc = useLocation();
+    {console.log(loc)}
 
     const setAllFalse = () =>{
         setHomeOn(false);
@@ -37,10 +39,10 @@ const Nav = () =>{
         <div className="fullNav">
             <img src={bannerLogo} />
             <div className="navContent">
-                <Link onClick={setHome} className={`${homeOn ? "navSelection" : ""}`} to= "/">Home</Link>
-                <Link onClick={setPricing} className={`${pricingOn ? "navSelection" : ""}`} to = "/pricing">Pricing</Link>
-                <Link onClick={setGroups} className={`${groupsOn ? "navSelection" : ""}`} to = "/group-sessions">Group Sessions</Link>
-                <Link onClick={setContact} className={`${contactOn ? "navSelection" : ""}`} to = "/contact">Contact</Link>
+                <Link className={`${loc.pathname === "/" ? "navSelection" : ""}`} to= "/">Home</Link>
+                <Link className={`${loc.pathname.includes("/pricing") ? "navSelection" : ""}`} to = "/pricing">Pricing</Link>
+                <Link className={`${loc.pathname.includes("/group-sessions") ? "navSelection" : ""}`} to = "/group-sessions">Group Sessions</Link>
+                <Link className={`${loc.pathname.includes("/contact") ? "navSelection" : ""}`} to = "/contact">Contact</Link>
             </div>
             <ProfileDropdown />
         </div>
