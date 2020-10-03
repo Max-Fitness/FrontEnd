@@ -1,9 +1,11 @@
 import React, {useState} from "react";
 import axios from "axios"
-import {useHistory} from "react-router-dom"
+import {useHistory, useLocation} from "react-router-dom"
 
 const LoginForm = () =>{
     const {push} = useHistory();
+    const {reload} = useHistory();
+    const location = useLocation();
     const [creds, setCreds] = useState({
         email: "",
         fName: "",
@@ -22,7 +24,15 @@ const LoginForm = () =>{
     const handleLogSub = e=>{
         axios.post("https://max-fitness.herokuapp.com/api/login", creds)
         .then(res=>{
-            localStorage.setItem("token", JSON.stringify(res.data))
+            localStorage.setItem("token", JSON.stringify(res.data.token))
+            localStorage.setItem("id", JSON.stringify(res.data.user.id))
+            localStorage.setItem("email", JSON.stringify(res.data.user.email))
+            localStorage.setItem("fName", JSON.stringify(res.data.user.fName))
+            localStorage.setItem("lName", JSON.stringify(res.data.user.lName))
+            localStorage.setItem("hasToken", JSON.stringify("hasToken"))
+            console.log(location)
+            push(`/`)
+            window.location.reload(false);
         })
         .catch(err=>{
             alert("invalid credentials")

@@ -1,0 +1,29 @@
+.GroupPageWrapper{
+    width: 80%;
+    height: 800px;
+    overflow: auto;
+}
+.GroupPageHeader{
+    width: 85%;
+    margin: 2% auto;
+    line-height: 30px;
+    padding: 2%;
+    background: rgba(143, 219, 255, 0.7);
+    border: 2px solid #120095;
+    border-radius: 20px;
+}
+
+.GroupSessionCard{
+    background: rgba(228, 246, 255, 0.7);
+    padding: 2%;
+    border-radius: 20px;
+    width: 60%;
+    margin: 0 auto;
+    border: 2px solid #120095;
+    margin-bottom: 2%;
+}
+.GroupSessionCardText{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}

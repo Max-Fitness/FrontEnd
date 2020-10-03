@@ -1,0 +1,49 @@
+.twitterFeed, .facebookFeed{
+    width: 20%;
+    padding-top: 2%;
+    border-right: 2px solid blue;
+    text-align: center;
+}
+.twitterFeed .twitterContent{
+    height: 700px;
+    overflow: auto;
+}
+
+.twitterFeed .twitterContent .tweet{
+    width: 95%;
+    margin: 0 auto;
+    border-radius: 20px;
+    border: 1px solid blue;
+    margin-bottom: 7%;
+    background: white;
+}
+
+.twitterFeed .twitterContent .tweet p{
+    padding: 3%;
+}
+@media(max-width: 1700px){
+    .twitterFeed, .facebookFeed{
+        width: 25%;
+    }
+}
+@media(max-width: 1440px){
+    .twitterFeed, .facebookFeed{
+        width: 30%;
+    }
+}
+@media(max-width: 1200px){
+    .twitterFeed, .facebookFeed{
+        width: 35%;
+    }
+}
+@media(max-width: 1050px){
+    .twitterFeed, .facebookFeed{
+        width: 40%;
+    }
+}
+@media(max-width: 895px){
+    .twitterFeed, .facebookFeed{
+        width: 100%;
+    }
+}
+
