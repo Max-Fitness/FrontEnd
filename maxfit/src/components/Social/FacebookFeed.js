@@ -7,7 +7,7 @@ export default class FacebookFeed extends Component {
       <div className="facebookFeed">
         {console.log("ENV",process.env)}
         <FacebookProvider appId="348818209662207">
-          <Page href={`${process.env.REACT_APP_FACEBOOK_URL}`} tabs="timeline" height="800px" />
+          <Page href={`http://www.facebook.com/facebook/`} tabs="timeline" height="800px" />
         </FacebookProvider>
       </div>    
     );
