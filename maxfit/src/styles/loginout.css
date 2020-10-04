@@ -1,0 +1,68 @@
+.LogWrapper{
+    width: 80%;
+}
+
+.LogContent{
+    width: 80%;
+    border: 2px solid #120095;
+    border-radius: 20px;
+    margin: 2% auto;
+    padding: 2%;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.7);
+}
+.LogTitle{
+    margin-bottom: 4%;
+}
+.LogTitle a{
+    color: black;
+}
+
+.LogContent form .formInput{
+    width: 30%;
+    margin: 0 auto;
+    
+}
+.formInput input{
+    width: 100%;
+    font-size: 1rem;
+    height: 2rem;
+    color: grey;
+    border-radius: 5px;
+    border: 2px solid grey;
+}
+.formInput p{
+    margin-top: 0;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.LogContent button{
+    margin-top: 2%;
+    padding: 1% 2%;
+    border-radius: 10px;
+}
+@media(max-width: 895px){
+    .LogWrapper{
+        margin: 0 auto;
+    }
+    .LogContent form .formInput{
+        width: 50%;
+    }
+}
+
+@media(max-width: 650px){
+    .LogContent{
+        width: 100%;
+    }
+    .LogContent form .formInput{
+        width: 80%;
+    }
+    .LogContent button{
+        margin-top: 5%;
+        width: 80%;
+        padding: 5%;
+    }
+}

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {useParams} from "react-router-dom";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
+import "../../styles/groupSessions.css"
 
 const GroupSessionInfo = () =>{
     const parameters = useParams();
@@ -21,7 +22,7 @@ const GroupSessionInfo = () =>{
                 setGroupFull(true)
             }
             for(let i = 0; i < regIds.length; i++){
-                if(parseInt(localStorage.getItem("id"), 10) === parseInt(i)){
+                if(parseInt(localStorage.getItem("id"), 10) === parseInt(regIds[i])){
                     setInGroup(true)
                 }
             }
@@ -50,14 +51,32 @@ const GroupSessionInfo = () =>{
             console.log(err)
         })
     }
+    const checkButtonOff = () =>{
+        if(inGroup === false && slots === 0){
+            return true;
+        }
+        return false;
+    }
 
     return(
-        <div>
-            <h1>{group.title}</h1>
-            <h1>{group.date} at {group.time}</h1>
-            <h3>{group.description}</h3>
-            <h4>Remaining Slots: {slots}</h4>
-            <button disabled={groupFull && !inGroup} onClick={()=>{handleSubmit()}}>{(inGroup === false) ? "Sign Up" : "Cancel Sign-up"  }</button>
+        <div className="GroupSessionWrapper">
+            <div className="GroupSessionCard">
+                <div className="GroupSessionCardTitle">
+                    <h1>{group.title}</h1>
+                    <h4>{group.date} at {group.time}</h4>
+                    <h4>37 Sutton Rd, Webster MA</h4>
+                </div>
+                <div className="GroupSessionCardDesc">
+                    <h3>{group.description}</h3>
+                </div>
+                <div className="GroupSessionCardBottom">
+                    <h4 id="employees">Hosted by {group.employees}</h4>
+                    <h4>Remaining Slots: {slots}</h4>
+                </div>
+                <div id="SignUpButton">
+                    <button className={`${checkButtonOff() ? "ButtonOff" : "ButtonOn"}`}disabled={checkButtonOff()} onClick={()=>{handleSubmit()}}>{(inGroup === false) ? "Sign Up" : "Cancel Sign-up"  }</button>
+                </div>
+            </div>
         </div>
     )
 }
