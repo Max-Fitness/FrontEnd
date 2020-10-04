@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {axiosWithAuth} from "../../utils/axiosWithAuth";
 import {useParams} from "react-router-dom"
+import "../../styles/profile.css"
 
 const UserInfoPage = () =>{
     const {id} = useParams();
@@ -37,17 +38,19 @@ const UserInfoPage = () =>{
     }
 
     return(
-    <div className="UserInfoPage">
-        <h1>{user.fName} {user.lName}</h1>
-        <h3>Role: {user.role}</h3>
-        <h3>Email: {user.email}</h3>
-        <select id="role" name="role" onChange={handleRoleChange}>
-            <option value="admin">Admin</option>
-            <option value="employee">Employee</option>
-            <option selected="selected" value="member">Member</option>
-            <option value="non-member">Non-Member</option>
-        </select>
-        <button onClick={()=>{handleSubmit()}}>Change Role</button>
+    <div className="UserPage">
+        <div className="UserCard">
+            <h1>{user.fName} {user.lName}</h1>
+            <h3>Role: {user.role}</h3>
+            <h3>Email: {user.email}</h3>
+            <select id="role" name="role" onChange={handleRoleChange}>
+                <option value="admin">Admin</option>
+                <option value="employee">Employee</option>
+                <option selected="selected" value="member">Member</option>
+                <option value="non-member">Non-Member</option>
+            </select>
+            <button onClick={()=>{handleSubmit()}}>Change Role</button>
+        </div>
 
     </div>
     )

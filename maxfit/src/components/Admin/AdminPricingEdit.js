@@ -1,16 +1,28 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import {useParams, useHistory} from "react-router-dom";
 import {axiosWithAuth} from "../../utils/axiosWithAuth";
+import "../../styles/groupForms.css"
 
-const AdminGroupCreate = () =>{
-    const [formData, setFormData] = useState({
-        title: "",
-        description: "",
-        date: "",
-        time: "",
-        employees: "",
-        regNames: "",
-        regIds: ""
-    })
+const AdminPricingEdit = () =>{
+    const {id} = useParams();
+    const {push} = useHistory();
+    const [formData, setFormData] = useState(
+        {
+            title: "",
+            description: "",
+            price: ""
+        }
+    )
+    const [data, setData] = useState({})
+
+    useEffect(()=>{
+        axiosWithAuth()
+        .get(`/pricing/${id}`)
+        .then(res=>{
+            setFormData(res.data)
+            setData(res.data)
+        })
+    },[])
 
     const handleChanges = e =>{
         setFormData({
@@ -21,12 +33,13 @@ const AdminGroupCreate = () =>{
 
     const handleSubmit = () =>{
         axiosWithAuth()
-        .post("/api/groups", formData)
+        .put(`/pricing/${id}`, formData)
         .then(res=>{
-            window.location.reload(false);
+            push('/admin/view-pricing')
         })
         .catch(err=>{
             console.log(err)
+            alert("Could not update pricing, please try again later!")
         })
     }
 
@@ -34,7 +47,7 @@ const AdminGroupCreate = () =>{
         <div className="GroupFormWrapper">
             <div className="GroupFormContent">
                 <div className="GroupFormTitle">
-                    <h2>Creating New Group</h2>
+                    <h1>Edit Pricing "{data.title}"</h1>
                 </div>
                 <form>
                     <div className="groupFormInput">
@@ -48,24 +61,14 @@ const AdminGroupCreate = () =>{
                     </div>
                     <br/>
                     <div className="groupFormInput">
-                        <p>Date *</p>
-                        <input type="text" name="date" placeholder="Date" onChange={handleChanges} value={formData.date} />
-                    </div>
-                    <br/>
-                    <div className="groupFormInput">
-                        <p>Time *</p>
-                        <input type="text" name="time" placeholder="Time" onChange={handleChanges} value={formData.time} />
-                    </div>
-                    <br/>
-                    <div className="groupFormInput">
-                        <p>Employees *</p>
-                        <input type="text" name="employees" placeholder="Employees" onChange={handleChanges} value={formData.employees} />                
+                        <p>Price *</p>
+                        <input type="text" name="price" placeholder="Price" onChange={handleChanges} value={formData.price} />
                     </div>
                 </form>
-                <button onClick={()=>{handleSubmit()}}>Create New Group</button>
+                <button onClick={()=>{handleSubmit()}}>Edit Pricing</button>
             </div>
         </div>
     )
 }
 
-export default AdminGroupCreate;
+export default AdminPricingEdit;

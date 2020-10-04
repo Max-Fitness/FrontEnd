@@ -10,7 +10,8 @@ const AdminGroups = () =>{
         axiosWithAuth()
         .get("/api/groups")
         .then(res=>{
-            setGroups(res.data)
+            let temp = res.data.sort(function(a, b){return (parseInt(a.id) - parseInt(b.id))})
+            setGroups(temp)
         })
     }, [])
 

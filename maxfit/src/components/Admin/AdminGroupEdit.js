@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from "react";
-import {useParams} from "react-router-dom";
+import {useParams, useHistory} from "react-router-dom";
 import {axiosWithAuth} from "../../utils/axiosWithAuth";
+import "../../styles/groupForms.css"
 
 const AdminGroupEdit = () =>{
     const {id} = useParams();
+    const {push} = useHistory();
     const [formData, setFormData] = useState(
         {
             id: 0,
@@ -53,53 +55,83 @@ const AdminGroupEdit = () =>{
         })
     }
 
+    const deleteGroup = () =>{
+        axiosWithAuth()
+        .delete(`/api/groups/${id}`)
+        .then(res=>{
+            alert("Group succesfully deleted!")
+            push('/admin/groups')
+        })
+        .catch(err=>{
+            alert("Unable to delete group, please try again later!")
+        })
+    }
+
     return(
-        <div className="AdminFormEditWrapper">
-            <h2>Editing Group "{group.title}" on {group.date} at {group.time} EST</h2>
-            <div className="AdminEditForm">
+        <div className="GroupFormWrapper">
+            <div className="GroupFormContent">
+                <div className="GroupFormTitle">
+                    <h2>Editing Group "{group.title}" on {group.date} at {group.time} EST</h2>
+                </div>
                 <form>
-                    <input
-                    type="text"
-                    name="title"
-                    placeholder="Title"
-                    value={formData.title}
-                    onChange={handleChange}
-                    />
+                    <div className="groupFormInput">
+                        <p>Title *</p>
+                        <input
+                        type="text"
+                        name="title"
+                        placeholder="Title"
+                        value={formData.title}
+                        onChange={handleChange}
+                        />
+                    </div>
                     <br/>
-                    <input
-                    type="text"
-                    name="description"
-                    placeholder="Group Description"
-                    value={formData.description}
-                    onChange={handleChange}
-                    />
+                    <div className="groupFormInput">
+                        <p>Description *</p>
+                        <input
+                        type="text"
+                        name="description"
+                        placeholder="Group Description"
+                        value={formData.description}
+                        onChange={handleChange}
+                        />
+                    </div>
                     <br/>
-                    <input
-                    type="text"
-                    name="date"
-                    placeholder="Date"
-                    value={formData.date}
-                    onChange={handleChange}
-                    />
+                    <div className="groupFormInput">
+                        <p>Date *</p>
+                        <input
+                        type="text"
+                        name="date"
+                        placeholder="Date"
+                        value={formData.date}
+                        onChange={handleChange}
+                        />
+                    </div>
                     <br/>
-                    <input
-                    type="text"
-                    name="time"
-                    placeholder="Time"
-                    value={formData.time}
-                    onChange={handleChange}
-                    />
+                    <div className="groupFormInput">
+                        <p>Time *</p>
+                        <input
+                        type="text"
+                        name="time"
+                        placeholder="Time"
+                        value={formData.time}
+                        onChange={handleChange}
+                        />
+                    </div>
                     <br/>
-                    <input
-                    type="text"
-                    name="employees"
-                    placeholder="Employees"
-                    value={formData.employees}
-                    onChange={handleChange}
-                    />
+                    <div className="groupFormInput">
+                        <p>Employees *</p>
+                        <input
+                        type="text"
+                        name="employees"
+                        placeholder="Employees"
+                        value={formData.employees}
+                        onChange={handleChange}
+                        />
+                    </div>
                     <br/>
                 </form>
                 <button onClick={()=>{handleSubmit()}}>Submit Changes</button>
+                <button onClick={()=>{deleteGroup()}}>Delete Group</button>
             </div>
         </div>
     )

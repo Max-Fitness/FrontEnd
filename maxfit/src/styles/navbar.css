@@ -40,6 +40,21 @@ a.navSelection{
     border-radius: 50%;
     cursor: pointer;
 }
+.adminNav{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2%;
+}
+
+.adminNav a{
+    font-size: 1.5rem;
+    color: #120095;
+    font-weight: bold;
+    text-decoration: none;
+
+}
+
 @media(max-width: 895px){
     .fullNav{
         font-size: 1.2rem;
@@ -71,5 +86,13 @@ a.navSelection{
     #profileImg{
         margin: 4% auto;
         width: 15%;
+    }
+    .adminNav{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .adminNav a{
+        padding: 2%;
     }
 }

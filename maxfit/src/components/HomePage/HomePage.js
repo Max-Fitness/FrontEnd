@@ -1,23 +1,31 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import ovalLogo from "../../images/ovalLogo.png"
 import "../../styles/homepage.css"
+import axios from "axios"
 
 const HomePage = () =>{
+    const [content, setContent] = useState({})
+    useEffect(()=>{
+        axios.get("https://max-fitness.herokuapp.com/info")
+        .then(res=>{
+            setContent(res.data[0])
+        })
+    })
     return(
         <div className="hpWrapper">
             <img className="hpImg" src={ovalLogo} />
             <div className="hpIntroWrapper">
-                <h1>MaxFitness</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa tempor nec feugiat nisl pretium. Id leo in vitae turpis. Venenatis lectus magna fringilla urna. Massa massa ultricies mi quis hendrerit dolor magna eget est. Malesuada fames ac turpis egestas. Enim nec dui nunc mattis enim ut. Montes nascetur ridiculus mus mauris. Et malesuada fames ac turpis egestas sed tempus urna. Quam adipiscing vitae proin sagittis nisl. Nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue. Faucibus et molestie ac feugiat sed lectus vestibulum mattis.</p>
+                <h1>{content.introTitle}</h1>
+                <p>{content.introText}</p>
             </div>
             <div className="hpTextWrapper">
                 <div className="hpTextBox">
-                    <h2>Our Mission</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa tempor nec feugiat nisl pretium. Id leo in vitae turpis. Venenatis lectus magna fringilla urna. Massa massa ultricies mi quis hendrerit dolor magna eget est. Malesuada fames ac turpis egestas. Enim nec dui nunc mattis enim ut. Montes nascetur ridiculus mus mauris</p>
+                    <h2>{content.introSubTitleA}</h2>
+                    <p>{content.introSubTextA}</p>
                 </div>
                 <div className="hpTextBox">
-                    <h2>About Us</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa tempor nec feugiat nisl pretium. Id leo in vitae turpis. Venenatis lectus magna fringilla urna. Massa massa ultricies mi quis hendrerit dolor magna eget est. Malesuada fames ac turpis egestas. Enim nec dui nunc mattis enim ut. Montes nascetur ridiculus mus mauris</p>
+                    <h2>{content.introSubTitleB}</h2>
+                    <p>{content.introSubTextB}</p>
                 </div>
             </div>
         </div>

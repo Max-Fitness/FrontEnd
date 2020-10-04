@@ -31,6 +31,10 @@ p, span{
     font-size: 0.9rem;
 }
 
+.AdminPageWrapper{
+    width: 80%;
+}
+
 @media(max-width:895px){
     body{
         width: 99%;
