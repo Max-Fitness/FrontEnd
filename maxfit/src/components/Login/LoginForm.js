@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import axios from "axios"
 import {useHistory, useLocation} from "react-router-dom"
+import {Link} from "react-router-dom";
+import "../../styles/loginout.css"
 
 const LoginForm = () =>{
     const {push} = useHistory();
@@ -29,62 +31,52 @@ const LoginForm = () =>{
             localStorage.setItem("email", JSON.stringify(res.data.user.email))
             localStorage.setItem("fName", JSON.stringify(res.data.user.fName))
             localStorage.setItem("lName", JSON.stringify(res.data.user.lName))
+            localStorage.setItem("role", JSON.stringify(res.data.user.role))
             localStorage.setItem("hasToken", JSON.stringify("hasToken"))
             console.log(location)
             push(`/`)
             window.location.reload(false);
         })
         .catch(err=>{
-            alert("invalid credentials")
+            alert("Email or Password is Incorrect!")
         })
         
     }
 
-    const handleRegSub = e =>{
-        axios.post("https://max-fitness.herokuapp.com/api/register", creds)
-        .then(res=>{
-            console.log(res)
-            alert("successfully registered! (this alert popup will not exist very soon)")
-        })
-        .catch(err=>{
-            console.log("shit broke")
-        })
-    }
-
     return(
-        <div>
-            <form>
-                <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={creds.email}
-                onChange={handleChange}
-                />
-                <input
-                type="text"
-                name="fName"
-                placeholder="First Name"
-                value={creds.fName}
-                onChange={handleChange}
-                />
-                <input
-                type="text"
-                name="lName"
-                placeholder="Last Name"
-                value={creds.lName}
-                onChange={handleChange}
-                />
-                <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                value={creds.password}
-                onChange={handleChange}
-                />
-            </form>
-            <button onClick={()=>{handleLogSub()}}>Log In</button>
-            <button onClick={()=>{handleRegSub()}}>Register</button>
+        <div className="LogWrapper">
+            <div className="LogContent">
+                <div className="LogTitle">
+                    <h1>Sign In</h1>
+                    <p>If you don't have an account, you can <Link to="/register">Sign up here</Link>!</p>
+                </div>
+                <form>
+                    <div className="formInput">
+                        <p>Email:</p>
+                        <input
+                        type="email"
+                        name="email"
+                        label="Email"
+                        placeholder="Email"
+                        value={creds.email}
+                        onChange={handleChange}
+                        />
+                    </div>
+                    <br/>
+                    <div className="formInput">
+                        <p>Password:</p>
+                        <input
+                        type="password"
+                        label="Password"
+                        name="password"
+                        placeholder="Password"
+                        value={creds.password}
+                        onChange={handleChange}
+                        />
+                    </div>
+                </form>
+                <button onClick={()=>{handleLogSub()}}>Log In</button>
+            </div>
         </div>
     )
 }

@@ -27,3 +27,108 @@
     display: flex;
     justify-content: space-between;
 }
+
+.GroupSessionWrapper{
+    width: 80%;
+    margin-top: 4%;
+}
+.GroupSessionWrapper h2, .GroupSessionWrapper h3, .GroupSessionWrapper h4, .GroupSessionWrapper h5{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.GroupSessionCardTitle{
+    text-align: center;
+    line-height: 50%;
+    margin-top: 5%;
+    margin-bottom: 15%;
+}
+.GroupSessionCardTitle h1{
+    margin-bottom: 3%;
+}
+
+.GroupSessionCardDesc{
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.GroupSessionCardBottom{
+    line-height: 50%;
+    text-align: center;
+}
+
+#SignUpButton{
+    margin-top: 2%;
+    text-align: center;
+}
+
+.ButtonOff{
+    padding: 20px 40px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bolder;
+    font-size:1rem;
+    border-radius: 10px;
+    background: rgb(179, 179, 179);
+}
+.ButtonOn{
+    padding: 20px 40px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bolder;
+    font-size:1rem;
+    border-radius: 10px;
+    background: #00aeff;
+    cursor: pointer;
+}
+
+.adminButtonPanel{
+    display: flex;
+    justify-content: space-between;
+}
+.adminButtonPanel button{
+    width: 100px;
+}
+.AdminGroupSessionCard{
+    background: rgba(228, 246, 255, 0.7);
+    padding: 2%;
+    border-radius: 20px;
+    width: 60%;
+    margin: 0 auto;
+    border: 2px solid #120095;
+    margin-bottom: 2%;
+}
+
+.AdminGroupSessionCardText{
+    display: flex;
+    justify-content: space-around;
+}
+
+@media(max-width: 895px){
+    .GroupPageWrapper{
+        width: 90%;
+        margin: 0 auto;
+        height: auto;
+        overflow: visible;
+        border-bottom: 2px solid #120095;
+    }
+    .GroupSessionWrapper{
+        margin: 0 auto;
+    }
+    .GroupSessionCard{
+        margin-top: 4%;
+    }
+}
+
+@media(max-width: 650px){
+    .GroupPageWrapper{
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .GroupPageHeader{
+        width: 100%;
+    }
+    .GroupSessionCard{
+        width: 90%;
+    }
+}
