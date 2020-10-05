@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {axiosWithAuth} from "../../utils/axiosWithAuth";
-import {useParams} from "react-router-dom"
+import {useParams, Link} from "react-router-dom"
 import "../../styles/profile.css"
 
 const UserInfoPage = () =>{
@@ -39,6 +39,7 @@ const UserInfoPage = () =>{
 
     return(
     <div className="UserPage">
+        <Link to='/admin/users'>Back to Users</Link>
         <div className="UserCard">
             <h1>{user.fName} {user.lName}</h1>
             <h3>Role: {user.role}</h3>

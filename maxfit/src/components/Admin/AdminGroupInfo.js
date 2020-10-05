@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {axiosWithAuth} from "../../utils/axiosWithAuth";
-import {useParams} from "react-router-dom";
+import {useParams, Link} from "react-router-dom";
 import "../../styles/groupSessions.css"
 
 const AdminGroupInfo = () =>{
@@ -22,6 +22,7 @@ const AdminGroupInfo = () =>{
 
     return(
         <div className="GroupSessionWrapper">
+            <Link to="/admin/groups">Back to View Groups</Link>
             <div className="GroupSessionCard">
                 <h4>ID: {group.id}</h4>
                 <h4>Title: {group.title}</h4>

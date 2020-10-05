@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {useParams, useHistory} from "react-router-dom";
+import {useParams, useHistory, Link} from "react-router-dom";
 import {axiosWithAuth} from "../../utils/axiosWithAuth";
 import "../../styles/groupForms.css"
 
@@ -49,6 +49,8 @@ const AdminGroupEdit = () =>{
         .put(`/api/groups/${id}`, formData)
         .then(res=>{
             setGroup(res.data)
+            alert("Group succesfully updated!")
+            push(`/admin/groups/info/${id}`)
         })
         .catch(err=>{
             console.log(err);
@@ -69,6 +71,7 @@ const AdminGroupEdit = () =>{
 
     return(
         <div className="GroupFormWrapper">
+            <Link to="/admin/groups">Back to View Groups</Link>
             <div className="GroupFormContent">
                 <div className="GroupFormTitle">
                     <h2>Editing Group "{group.title}" on {group.date} at {group.time} EST</h2>

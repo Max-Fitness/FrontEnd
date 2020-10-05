@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {useParams, useHistory} from "react-router-dom";
+import {useParams, useHistory, Link} from "react-router-dom";
 import {axiosWithAuth} from "../../utils/axiosWithAuth";
 import "../../styles/groupForms.css"
 
@@ -45,6 +45,7 @@ const AdminPricingEdit = () =>{
 
     return(
         <div className="GroupFormWrapper">
+            <Link to="/admin/view-pricing">Back to View Pricings</Link>
             <div className="GroupFormContent">
                 <div className="GroupFormTitle">
                     <h1>Edit Pricing "{data.title}"</h1>

@@ -13,7 +13,7 @@ const LoginForm = () =>{
         fName: "",
         lName: "",
         password: "",
-        role: 1,
+        role: 2,
     })
 
     const handleChange = e =>{

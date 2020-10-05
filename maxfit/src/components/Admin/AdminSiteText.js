@@ -1,10 +1,14 @@
 import React, {useState, useEffect} from "react";
 import {axiosWithAuth} from "../../utils/axiosWithAuth";
+import {Link} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import descImg1 from "../../images/DescImg1.png"
 import descImg2 from "../../images/DescImg2.png"
 import descImg3 from "../../images/DescImg3.png"
 
 const AdminSiteText = () =>{
+    const {push} = useHistory();
+
     const [formData, setFormData] = useState({})
     useEffect(()=>{
         axiosWithAuth()
@@ -27,16 +31,22 @@ const AdminSiteText = () =>{
         .put("/info/1", formData)
         .then(res=>{
             alert("Successfully Updated Site!")
+            push('/admin')
         })
         .catch(err=>{
-            console.log(err)
-            alert("Unable to update site, please try again later!")
+            if(err.response.status === 403){
+                alert("Error: Only site administrators have access to this ability")
+            }
+            else{
+                alert("Unable to update site, please try again later!")
+            }
         })
 
     }
 
     return(
         <div className="GroupFormWrapper">
+            <Link to="/admin">Back to Site Management</Link>
             <div className="GroupFormContent">
                 <div className="GroupFormTitle">
                     <h2>Edit Site Text</h2>

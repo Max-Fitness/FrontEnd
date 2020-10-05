@@ -11,7 +11,7 @@ const FacebookFeed = () =>{
     .then(res=>{
       setFb(res.data[0].contactFacebook)
     })
-  })
+  },[])
 
 
     return (
