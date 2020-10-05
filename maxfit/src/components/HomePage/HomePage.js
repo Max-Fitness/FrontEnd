@@ -10,7 +10,7 @@ const HomePage = () =>{
         .then(res=>{
             setContent(res.data[0])
         })
-    })
+    },[])
     return(
         <div className="hpWrapper">
             <img className="hpImg" src={ovalLogo} />
