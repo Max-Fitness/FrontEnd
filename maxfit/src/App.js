@@ -19,6 +19,12 @@ import AdminGroupInfo from "./components/Admin/AdminGroupInfo";
 import AdminGroupEdit from "./components/Admin/AdminGroupEdit";
 import AdminGroupCreate from "./components/Admin/AdminGroupCreate";
 import Profile from "./components/Profile/Profile";
+import ContactPage from "./components/Contact/ContactPage";
+import PricingPage from "./components/Pricing/PricingPage";
+import AdminSiteText from "./components/Admin/AdminSiteText"
+import AdminPricingPage from "./components/Admin/AdminPricingPage";
+import AdminPricingCreate from "./components/Admin/AdminPricingCreate";
+import AdminPricingEdit from "./components/Admin/AdminPricingEdit";
 
 function App() {
   return (
@@ -28,10 +34,10 @@ function App() {
           <div className="AppWrapper">
             <FacebookFeed />
             <Route exact path="/"><HomePage /></Route>
-            <Route exact path="/pricing"><h1>Page is under maintenance! Please come back later!</h1></Route>
+            <Route exact path="/pricing"><PricingPage /></Route>
             <ProtectedRoute exact path="/group-sessions" component={() => <GroupSessions/> } />
             <ProtectedRoute exact path="/group-sessions/:id" component={() => <GroupSessionInfo/> } />
-            <Route exact path="/contact"><h1>Page is under maintenance! Please come back later!</h1></Route>
+            <Route exact path="/contact"><ContactPage /></Route>
             <Route exact path="/login"><LoginForm/></Route>
             <Route exact path="/register"><RegisterForm /></Route>
             <ProtectedRoute exact path="/profile" component={()=><Profile/> }/>
@@ -42,6 +48,10 @@ function App() {
             <EmployeeProtected exact path="/admin/groups/info/:id" component={()=><AdminGroupInfo />}/>
             <EmployeeProtected exact path="/admin/groups/edit/:id" component={()=><AdminGroupEdit/>}/>
             <EmployeeProtected exact path="/admin/groups/create" component={()=><AdminGroupCreate/>}/>
+            <EmployeeProtected exact path="/admin/site" component={()=><AdminSiteText/>}/>
+            <EmployeeProtected exact path="/admin/view-pricing" component={()=><AdminPricingPage/>}/>
+            <EmployeeProtected exact path="/admin/create-pricing" component={()=><AdminPricingCreate/>}/>
+            <EmployeeProtected exact path="/admin/edit-pricing/:id" component={()=><AdminPricingEdit/>}/>
           </div>
           {/* <Route exact path="/"><Team /></Route> */}
           <div id="copyright">

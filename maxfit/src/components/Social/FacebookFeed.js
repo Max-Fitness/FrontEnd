@@ -1,15 +1,26 @@
-import React, { Component} from 'react';
+import React, {useState, useEffect, Component} from "react";
 import { FacebookProvider, Page } from 'react-facebook';
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
+import axios from "axios";
 
-export default class FacebookFeed extends Component {
-  render() {
+const FacebookFeed = () =>{
+
+  const [fb, setFb] = useState("")
+  useEffect(()=>{
+    axios.get('https://max-fitness.herokuapp.com/info')
+    .then(res=>{
+      setFb(res.data[0].contactFacebook)
+    })
+  })
+
+
     return (
       <div className="facebookFeed">
-        {console.log("ENV",process.env)}
         <FacebookProvider appId="348818209662207">
-          <Page href={`http://www.facebook.com/facebook/`} tabs="timeline" height="800px" />
+          <Page href={fb} tabs="timeline" height="800px" />
         </FacebookProvider>
       </div>    
     );
-  }
 }
+
+export default FacebookFeed;

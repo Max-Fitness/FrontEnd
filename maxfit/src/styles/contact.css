@@ -1,0 +1,18 @@
+.ContactPageWrapper{
+    width: 80%;
+}
+.ContactInfo{
+    width: 60%;
+    margin: 5% auto;
+    text-align: center;
+    padding: 2%;
+    border-radius: 20px;
+    border: 2px solid #120095;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+@media(max-width: 650px){
+    .ContactInfo{
+        width: 80%;
+    }
+}

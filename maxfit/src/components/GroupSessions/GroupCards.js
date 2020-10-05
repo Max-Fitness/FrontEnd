@@ -5,7 +5,7 @@ import "../../styles/groupSessions.css"
 const GroupCards = ({group}) =>{
     return(
             <div className="GroupSessionCard">
-                <Link to={`/group-sessions/${group.id}`}>
+                <Link onClick={()=>{window.scrollTo(0,0)}} to={`/group-sessions/${group.id}`}>
                 <div className = "GroupSessionCardText">
                     <h2>{group.title}</h2>
                     <h3>{group.time}</h3>

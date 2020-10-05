@@ -60,7 +60,7 @@ const GroupSessionInfo = () =>{
 
     return(
         <div className="GroupSessionWrapper">
-            <div className="GroupSessionCard">
+            <div className="GroupSessionInfoCard">
                 <div className="GroupSessionCardTitle">
                     <h1>{group.title}</h1>
                     <h4>{group.date} at {group.time}</h4>

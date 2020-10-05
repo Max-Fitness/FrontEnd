@@ -22,6 +22,16 @@
     border: 2px solid #120095;
     margin-bottom: 2%;
 }
+
+.GroupSessionInfoCard{
+    background: rgba(228, 246, 255, 0.7);
+    padding: 2%;
+    border-radius: 20px;
+    width: 60%;
+    margin: 0 auto;
+    border: 2px solid #120095;
+    margin-bottom: 2%;
+}
 .GroupSessionCardText{
     width: 100%;
     display: flex;
@@ -78,6 +88,23 @@
     background: #00aeff;
     cursor: pointer;
 }
+.ButtonOn:hover{
+    background: #77d4ff
+}
+
+.GroupSessionCard :hover{
+    color: #120095;
+}
+
+.GroupSessionCard a{
+    text-decoration: none;
+    color: black;
+}
+
+.GroupSessionCard h2{
+    font-weight: bolder;
+    text-decoration: underline;
+}
 
 .adminButtonPanel{
     display: flex;
@@ -115,6 +142,9 @@
     .GroupSessionCard{
         margin-top: 4%;
     }
+    .GroupSessionInfoCard{
+        margin-top: 4%;
+    }
 }
 
 @media(max-width: 650px){
@@ -129,6 +159,12 @@
         width: 100%;
     }
     .GroupSessionCard{
+        width: 90%;
+    }
+    .GroupSessionInfoCard{
+        width: 90%;
+    }
+    .AdminGroupSessionCard{
         width: 90%;
     }
 }

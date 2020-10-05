@@ -1,0 +1,28 @@
+.PricePageWrapper{
+    width: 80%;
+    height: 800px;
+    overflow: auto;
+}
+
+.PriceCard{
+    width: 70%;
+    margin: 5% auto;
+    padding: 2%;
+    border-radius: 20px;
+    border: 2px solid #120095;
+    background:rgba(143, 219, 255, 0.7);
+}
+
+@media(max-width: 650px){
+    .PricePageWrapper{
+        height: auto;
+        overflow: hidden;
+    }
+    .PriceCard{
+        width: 80%;
+    }
+    .PriceCard button{
+        padding: 3% 5%;
+        margin-right: 10%;
+    }
+}
