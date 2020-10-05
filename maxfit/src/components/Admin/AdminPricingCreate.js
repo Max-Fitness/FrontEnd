@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import {axiosWithAuth} from "../../utils/axiosWithAuth";
 import "../../styles/groupForms.css"
-import {useHistory} from "react-router-dom"
+import {useHistory, Link} from "react-router-dom"
 
 const AdminPricingCreate = () =>{
     const {push} = useHistory();
@@ -32,6 +32,7 @@ const AdminPricingCreate = () =>{
 
     return(
         <div className="GroupFormWrapper">
+            <Link to="/admin">Back to Site Management</Link>
             <div className="GroupFormContent">
                 <div className="GroupFormTitle">
                     <h1>Create New Pricing</h1>

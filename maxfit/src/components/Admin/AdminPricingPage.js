@@ -30,6 +30,7 @@ const AdminPricingPage = () =>{
 
     return(
         <div className="PricePageWrapper">
+            <Link to="/admin">Back to Site Management</Link>
             {pricing.map(price=>(
                 <div className="PriceCard">
                     <h1>{price.title}</h1>

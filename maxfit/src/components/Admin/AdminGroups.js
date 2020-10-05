@@ -16,7 +16,7 @@ const AdminGroups = () =>{
     }, [])
 
     const quickDelete = (id) =>{
-        if(parseInt(localStorage.getItem("role"),10) === 4){
+        if(parseInt(localStorage.getItem("role"),10) >= 4){
             axiosWithAuth()
             .delete(`/api/groups/${id}`)
             .then(res=>{
@@ -26,11 +26,15 @@ const AdminGroups = () =>{
                 console.log(err)
             })
         }
+        else{
+            alert("Only site administrators have the ability to quick-delete! Employees may only delete groups via the edit tab!")
+        }
     }
 
 
     return(
         <div className="GroupPageWrapper">
+            <Link to="/admin">Back to Site Management</Link>
             <div className="GroupPageHeader">
                 <h1>Group Sessions</h1>
                 <h3>Here is the current state of the group sessions (the data is being pulled directly from the api here). The sessions do not expire with time, so they have to be manually-deleted. Administrators (role 4 users) have the ability to use the delete button right on this page. For the sake of security and minimizing the margin of error, employees (role 3 users) may only delete sessions via the edit tab!</h3>

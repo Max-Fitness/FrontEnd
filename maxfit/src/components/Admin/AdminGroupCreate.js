@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {axiosWithAuth} from "../../utils/axiosWithAuth";
+import {Link} from "react-router-dom"
 
 const AdminGroupCreate = () =>{
     const [formData, setFormData] = useState({
@@ -32,6 +33,7 @@ const AdminGroupCreate = () =>{
 
     return(
         <div className="GroupFormWrapper">
+            <Link to="/admin">Back to Site Management</Link>
             <div className="GroupFormContent">
                 <div className="GroupFormTitle">
                     <h2>Creating New Group</h2>

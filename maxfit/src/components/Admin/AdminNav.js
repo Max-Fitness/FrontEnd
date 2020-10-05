@@ -5,11 +5,11 @@ import "../../styles/navbar.css"
 const AdminNav = () =>{
     return(
         <div className="adminNav">
-            <Link to="/admin/site">Edit Site Text</Link>
-            <Link to="/admin/users">View Users</Link>
+            {parseInt(localStorage.getItem("role"),10) >= 4 ? <Link to="/admin/site">Edit Site Text</Link> : null}
+            {parseInt(localStorage.getItem("role"),10) >= 4 ? <Link to="/admin/users">View Users</Link> : null}
             <Link to="/admin/groups">View Groups</Link>
-            <Link to="/admin/view-pricing">View Pricings</Link>
-            <Link to="/admin/create-pricing">Create Pricing</Link>
+            {parseInt(localStorage.getItem("role"),10) >= 4 ? <Link to="/admin/view-pricing">View Pricings</Link> : null}
+            {parseInt(localStorage.getItem("role"),10) >= 4 ? <Link to="/admin/create-pricing">Create Pricing</Link> : null}
             <Link to="/admin/groups/create">Create Group</Link>
         </div>
     )

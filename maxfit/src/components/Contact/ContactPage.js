@@ -9,7 +9,7 @@ const ContactPage = () =>{
         .then(res=>{
             setContent(res.data[0])
         })
-    })
+    },[])
 
     return(
         <div className="ContactPageWrapper">

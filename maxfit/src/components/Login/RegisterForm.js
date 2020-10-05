@@ -13,14 +13,13 @@ const LoginForm = () =>{
         password: "",
         role: 2,
     })
-    const [button, setButton] = useState(<button disabled={true} onClick={()=>{handleRegSub()}}>Register</button>)
+    const [button, setButton] = useState(<button disabled={false} onClick={()=>{handleRegSub()}}>Register</button>)
 
     const handleChange = e =>{
         setCreds({
             ...creds,
             [e.target.name]: e.target.value
         })
-        checkButton();
     }
 
     const checkButton = ()=>{
@@ -99,7 +98,7 @@ const LoginForm = () =>{
                         />
                     </div>
                 </form>
-                {button}
+                <button onClick={()=>{handleRegSub()}}>Register</button>
             </div>
         </div>
     )

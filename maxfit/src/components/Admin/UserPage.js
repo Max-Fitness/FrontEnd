@@ -84,6 +84,7 @@ const UserPage = () =>{
 
     return(
         <div className="UserPage">
+            <Link to="/admin">Back to Site Management</Link>
             <form onSubmit={searchMembers}>
                 <input type="text" name="search" placeholder="Search Members" onChange={handleChange} value={search} />
                 <button>Search</button>
